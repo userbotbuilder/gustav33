@@ -19,19 +19,18 @@ LOGGER.info("Starting Gustav...")
 #    quit(1)
     
 
-TOKEN = Config.API_KEY
+TOKEN = API_KEY
 try:
-    OWNER_ID = int(Config.OWNER_ID)
+    OWNER_ID = int(OWNER_ID)
 except ValueError:
     raise Exception("Your OWNER_ID variable is not a valid integer.")
 
 try:
-    MESSAGE_DUMP = Config.MESSAGE_DUMP
+    MESSAGE_DUMP = MESSAGE_DUMP
 except ValueError:
     raise Exception("Your MESSAGE_DUMP must be set.")
 
-#MESSAGE_DUMP = Config.MESSAGE_DUMP
-OWNER_USERNAME = Config.OWNER_USERNAME
+OWNER_USERNAME = OWNER_USERNAME
 
 try:
     SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
@@ -48,21 +47,21 @@ try:
 except ValueError:
     raise Exception("Your whitelisted users list does not contain valid integers.")
 
-WEBHOOK = Config.WEBHOOK
-URL = Config.URL
-PORT = Config.PORT
-CERT_PATH = Config.CERT_PATH
+WEBHOOK = WEBHOOK
+URL = URL
+PORT = PORT
+CERT_PATH = CERT_PATH
 
-DB_URI = Config.SQLALCHEMY_DATABASE_URI
-LOAD = Config.LOAD
-NO_LOAD = Config.NO_LOAD
-DEL_CMDS = Config.DEL_CMDS
-STRICT_ANTISPAM = Config.STRICT_ANTISPAM
-WORKERS = Config.WORKERS
-BAN_STICKER = Config.BAN_STICKER
-ALLOW_EXCL = Config.ALLOW_EXCL
-MAPS_API = Config.MAPS_API
-API_WEATHER = Config.API_OPENWEATHER
+DB_URI = SQLALCHEMY_DATABASE_URI
+LOAD = LOAD
+NO_LOAD = NO_LOAD
+DEL_CMDS = DEL_CMDS
+STRICT_ANTISPAM = STRICT_ANTISPAM
+WORKERS = WORKERS
+BAN_STICKER = BAN_STICKER
+ALLOW_EXCL = ALLOW_EXCL
+MAPS_API = MAPS_API
+API_WEATHER = API_OPENWEATHER
 DEEPFRY_TOKEN = os.environ.get('DEEPFRY_TOKEN', "")
 
 SUDO_USERS.add(OWNER_ID)
