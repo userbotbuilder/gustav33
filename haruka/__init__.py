@@ -19,7 +19,6 @@ LOGGER.info("Starting Gustav...")
 #    quit(1)
     
 
-from haruka.config import Development
 TOKEN = Config.API_KEY
 try:
     OWNER_ID = int(Config.OWNER_ID)
