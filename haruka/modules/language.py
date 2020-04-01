@@ -19,11 +19,11 @@ def locale(bot, update, args):
         if locale in list_locales:
             if locale in ('en', 'ru', 'ua', 'es', 'tr', 'id'):
                 switch_to_locale(chat.id, locale)
-                update.message.reply_text(tld(chat.id, 'Switched to {} successfully!').format(list_locales[locale]))
+                update.message.reply_text(tld(chat.id, 'Sprache zu {} geändert!').format(list_locales[locale]))
             else:
-                update.message.reply_text("{} is not supported yet!".format(list_locales[locale]))
+                update.message.reply_text("{} ist noch keine unterstützte Sprache!".format(list_locales[locale]))
         else:
-            update.message.reply_text("Is that even a valid language code? Use an internationally accepted ISO code!")
+            update.message.reply_text("Ist das eine Sprache? Gib den ISO code an!")
     else:
         LANGUAGE = prev_locale(chat.id)
         if LANGUAGE:
@@ -31,7 +31,7 @@ def locale(bot, update, args):
             native_lang = list_locales[locale]
             update.message.reply_text("Die aktuelle Spracheinstellung ist: *{}*".format(native_lang), parse_mode = ParseMode.MARKDOWN)
         else:
-            update.message.reply_text("Current locale for this chat is: *English*", parse_mode=ParseMode.MARKDOWN)
+            update.message.reply_text("Die aktuelle Sprache für diesen Chat ist *Deutsch*", parse_mode=ParseMode.MARKDOWN)
 
 @user_admin
 def locale_button(bot, update):
@@ -54,7 +54,7 @@ def locale_button(bot, update):
         curr_lang = "English"
 
     text = "*Sprache auswählen* \n"
-    text += "Nutzer-Sprache : `{}`".format(curr_lang)
+    text += "Nutzer-Sprache: `{}`".format(curr_lang)
 
     conn = connected(bot, update, chat, user.id, need_admin=False)
 
@@ -70,12 +70,12 @@ def locale_button(bot, update):
 
     query.message.reply_text(text, parse_mode=ParseMode.MARKDOWN,
                                             reply_markup=InlineKeyboardMarkup([[
-                                            InlineKeyboardButton("English 🇺🇸", callback_data="set_lang_en")]] + [[
-                                            InlineKeyboardButton("Russian 🇷🇺", callback_data="set_lang_ru"),
-                                            InlineKeyboardButton("Ukrainian 🇺🇦", callback_data="set_lang_ua")]] + [[
-                                            InlineKeyboardButton("Spanish 🇪🇸", callback_data="set_lang_es"),
-                                            InlineKeyboardButton("Turkish 🇹🇷", callback_data="set_lang_tr")]] + [[
-                                            InlineKeyboardButton("Indonesian 🇮🇩", callback_data="set_lang_id")]] + [[
+                                            InlineKeyboardButton("Englisch 🇺🇸", callback_data="set_lang_en")]] + [[
+                                            InlineKeyboardButton("Russisch 🇷🇺", callback_data="set_lang_ru"),
+                                            InlineKeyboardButton("Ukrainisch 🇺🇦", callback_data="set_lang_ua")]] + [[
+                                            InlineKeyboardButton("Spanisch 🇪🇸", callback_data="set_lang_es"),
+                                            InlineKeyboardButton("Türkish 🇹🇷", callback_data="set_lang_tr")]] + [[
+                                            InlineKeyboardButton("Indonesisch 🇮🇩", callback_data="set_lang_id")]] + [[
                                             InlineKeyboardButton("⬅️ Zurück", callback_data="bot_start")]]))
 
     print(lang_match)

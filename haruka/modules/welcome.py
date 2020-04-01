@@ -83,8 +83,8 @@ def send(update, message, keyboard, backup_message):
         else:
             try:
                 msg = update.effective_message.reply_text(markdown_parser(backup_message +
-                                                                      "\nHinweis: Bei dem Versuch, die neue Willkommenensnachricht zu senden, "
-                                                                      "trat ein Fehler auf. Bitte den Text auf Fehler überprüfen und verbessern."),
+                                                                      "\nOh Gott, noch ein Bug... "
+                                                                      "Wende dich bitte an @ShityBrainOfficial!"),
                                                       reply_to_message_id=reply, 
                                                       parse_mode=ParseMode.MARKDOWN)
             except BadRequest:

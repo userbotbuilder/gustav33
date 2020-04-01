@@ -1,126 +1,109 @@
 """
- - /adminlist | /admins: list of admins in the chat
+ - /adminlist | /admins: Liste der Admins im Chat
 
-*Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
- - /unpin: unpins the currently pinned message
- - /invitelink: gets invitelink
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+*Nur für Admins:*
+ - /pin: Pinnt eine Nachricht an
+ - /unpin: Pinnt die aktuell angepinnte Nachricht ab!
+ - /invitelink: Spuckt den Einladungslink raus
+ - /promote: Macht den Nutzer, auf den geantwortet wird, zum Admin
+ - /demote: Degradiert den markierten Admin
 """
 """
- - /afk <reason>: mark yourself as AFK.
- - brb <reason>: same as the afk command - but not a command.
+ - /afk <Grund>: Markiere dich selbst als AFK.
+ - brb <reason>: Das gleiche wie /afk, doch nicht als Befehl.
+"""
+"""
+ - /flood: Die aktuelle Einstellung zur Flood-Kontrolle zu erhalten
 
-When marked as AFK, any mentions will be replied to with a message to say you're not available!
+*Nur für Admins:*
+ - /setflood <int/'no'/'off'>: Aktiviert oder deaktiviert die Flood-Kontrolle
 """
 """
- - /flood: Get the current flood control setting
+*Nur für Admins:*
+ - /antispam <on/off/yes/no>: Aktiviert/Deaktiviert den Spamschutz in deiner Gruppe. 
+"""
+"""
+ - /kickme: Kickt den Nutzer, der den Befehl nutzt.
 
-*Admin only:*
- - /setflood <int/'no'/'off'>: enables or disables flood control
+*Nur für Admins:*
+ - /ban <userhandle>: Verbannt einen Nutzer.
+ - /tban <userhandle> x(m/h/d): Verbannt einen Nutzer für x Zeit. m = Minuten, h = Stunden, d = Tage.
+ - /unban <userhandle>: Hebt den Ban eines Nutzers auf.
+ - /kick <userhandle>: Kickt einen Nutzer.
 """
 """
-*Admin only:*
- - /antispam <on/off/yes/no>: Will disable antispam security in group, or return your current settings.
+Aktionen, die auf verbundene Gruppen angewandt werden können:
+ • Notizen anzeigen lassen und bearbeiten
+ • Filter anzeigen lassen und bearbeiten
+ • Blacklists anzeigen lassen und bearbeiten
+ • Nutzer hochstufen/degradieren
+ • Admin-Liste und Einladungslink sehen
+ • Befehle des Chats aktivieren/deaktivieren
+ • Nutzer Muten/Entmuten
+ • Nutzer vom Chat verbannen/Entbannen
 
-Antispam are used by the bot owners to ban spammers across all groups. This helps protect \
-you and your groups by removing spam flooders as quickly as possible. They can be disabled for you group by calling \
-/antispam
+ - /connection <Chat-ID>: Mit einem Chat, in dem du Admin bist, verbinden
+ - /disconnect: Die Verbindung zum Chat trennen
+ - /allowconnect on/yes/off/no: Es erlauben/Verbieten, dass die Gruppe verknüpft werden kann.
 """
 """
- - /kickme: kicks the user who issued the command
+ - /filters: Aktuelle Filter im Chat anzeigen lassen
 
-*Admin only:*
- - /ban <userhandle>: bans a user. (via handle, or reply)
- - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- - /unban <userhandle>: unbans a user. (via handle, or reply)
- - /kick <userhandle>: kicks a user, (via handle, or reply)
+*Nur für Admins:*
+ - /filter <keyword> <Antwortnachricht>: Eine automatische Antwort zum Chat hinzufügen , \
+wenn ein festgelegtes Wort/ein  festgelegter Satz im Chat erwähnt wird,  \
+antworte ich mit einem festgelegten Wort/Satz- z.B.: /filter 'Hey, was geht?' Yo, wat up? \
+ - /stop <Filter-Keyword>: Stoppt den Filter.
 """
 """
-Actions are available with connected groups:
- • View and edit notes
- • View and edit filters
- • View and edit blacklists
- • Promote/demote users
- • See adminlist, see invitelink
- • Disable/enable commands in chat
- • Mute/unmute users in chat
- • Restrict/unrestrict users in chat
- • More in future!
+ - /cmds: Den aktuellen Status deaktivierter Befehele einsehen
 
- - /connection <chatid>: Connect to remote chat
- - /disconnect: Disconnect from chat
- - /allowconnect on/yes/off/no: Allow connect users to group
+*Nur für Admins:*
+ - /enable <Befehlname>: Den Befehl aktivieren
+ - /disable <Befehlname>: Den Befehl deaktivieren
+ - /listcmds: Liste aller veränderbaren Befehle
 """
 """
- - /filters: list all active filters in this chat.
+ - /locktypes: Eine Liste der möglichen Inhaltssperren erhalten
 
-*Admin only:*
- - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
-is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
-keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
-doin?
- - /stop <filter keyword>: stop that filter.
-"""
-"""
- - /cmds: check the current status of disabled commands
-
-*Admin only:*
- - /enable <cmd name>: enable that command
- - /disable <cmd name>: disable that command
- - /listcmds: list all possible toggleable commands
-"""
-"""
- - /locktypes: a list of possible locktypes
-
-*Admin only:*
- - /lock <type>: lock items of a certain type (not available in private)
- - /unlock <type>: unlock items of a certain type (not available in private)
+*Nur für Admins:*
+ - /lock <type>: Sperrt Inhalte deiner Wahl
+ - /unlock <type>: Entsperrt Inhalte deiner Wahl
  - /locks: the current list of locks in this chat.
 
-Locks can be used to restrict a group's users.
-eg:
-Locking urls will auto-delete all messages with urls which haven't been whitelisted, locking stickers will delete all \
-stickers, etc.
-Locking bots will stop non-admins from adding bots to the chat.
+Sperren können dazu genutzt werden, Nutzer zu sperren
+z.B.:
+Das Sperren von URLs löscht alle Nachrichten mit URLs, die nicht auf die Whitelist gesetzt wurden. Das Sperren von Stickern wird alle gesendeten Sticker löschen \
+etc...
+Mit /lock bots kannst du verhindern, dass nicht-Admins Bots hinzufügen.
 """
 """
-*Admin only:*
-- /logchannel: get log channel info
-- /setlog: set the log channel.
-- /unsetlog: unset the log channel.
+*Nur für Admins:*
+- /logchannel: Die Log-Kanal-Info erhalten
+- /setlog: Den Log-Kanal setzen.
+- /unsetlog: Den Log-Kanal entfernen.
 
-Setting the log channel is done by:
-- adding the bot to the desired channel (as an admin!)
-- sending /setlog in the channel
-- forwarding the /setlog to the group
+So kannst du den Log-Kanal setzen:
+- Den Bot zum gewünschten Kanal als Admin hinzufügen
+- /setlog in den Kanal senden
+- Die /setlog Nachricht aus dem Kanal in die Gruppe weiterleiten.
 """
 """
- - /id: get the current group id. If used by replying to a message, gets that user's id.
- - /runs: reply a random string from an array of replies.
- - /slap: slap a user, or get slapped if not a reply.
- - /time <place>: gives the local time at the given place.
- - /weather <city>: get weather info in a particular place.
- - /info: get information about a user.
- - /gdpr: deletes your information from the bot's database. Private chats only.
- - /stickerid: reply to a sticker to me to tell you its file ID.
- - /getsticker: reply to a sticker to me to upload its raw PNG file.
-
- - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
+ - /id: Die Gruppen-ID erhalten. Falls mit der Nachricht auf einen Nutzer geantwortet wird, wird seine ID ausgegeben.
+ - /info: Infos über den entsprechenden Nutzer erhalten.
+ - /stickerid: Auf einen Sticker antworten, um seine ID zu erhalten.
+ - /getsticker: Auf einen Sticker antworten, um ihn als PNG Bild zu erhalten.
 """
 """
-*Admin only:*
- - /del: deletes the message you replied to
- - /purge: deletes all messages between this and the replied to message.
- - /purge <integer X>: deletes the replied message, and X messages following it.
+*Nur für Admins:*
+ - /del: Löscht die Nachricht, auf die geantwortet wird.
+ - /purge: Löscht alles zwischen der Nachricht, auf die geantwortet wird und der geschickten.
 """
 """
-*Admin only:*
- - /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
- - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
- - /restrict <userhandle>: restricts a user from sending stickers, gif, embed links or media. Can also be used as a reply, restrict the replied to user.
+*Nur für Admins:*
+ - /mute <userhandle>: Schält einen User stumm.
+ - /unmute <userhandle>: Hebt die Stummschaltung eines Nutzers auf.
+ - /restrict <userhandle>: Einem Nutzer verbieten, z.B. Medien oder Links zu schicken.
  - /trestrict <userhandle> x(m/h/d): restricts a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
  - /unrestrict <userhandle>: unrestricts a user from sending stickers, gif, embed links or media. Can also be used as a reply, restrict the replied to user.
 """

@@ -26,7 +26,7 @@ Du weißt sicher, wie schwierig es sein kann, Gruppen zu managen. Ich helfe dir 
 
 Schreibe /help oder drücke den Hilfe-Knopf unten, um mehr drüber herauszufinden, wie du mich am besten verwenden kannst.
 
-Made with Love by @ShityBrainOfficial
+Ich bin ein Werk meines Meisters @ShityBrainOfficial
 """
 
 
@@ -144,7 +144,7 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name 
     text = PM_START
 
-    keyboard = [[InlineKeyboardButton(text="Sprache (BETA)", callback_data="set_lang_")]]
+    keyboard = [[InlineKeyboardButton(text="Sprach-Auswahl", callback_data="set_lang_")]]
     keyboard += [[InlineKeyboardButton(text="Extras (BETA)", callback_data="cntrl_panel_M"), 
         InlineKeyboardButton(text="Hilfe", callback_data="help_back")]]
 
@@ -194,7 +194,7 @@ def control_panel(bot, update):
             #If user admin
             member = chatG.get_member(user.id)
             if member.status in ('administrator', 'creator'):
-                text += f"\nVerbundener Chat - *{chatG.title}* (Du {member.status})"
+                text += f"\nVerbundener Chat - *{chatG.title}* (Du bist {member.status})"
                 keyboard += [[InlineKeyboardButton(text="👥 Gruppen-Infos", callback_data="cntrl_panel_G_back")]]
             elif user.id in SUDO_USERS:
                 text += f"\nVerbundener Chat - *{chatG.title}* (Du bist Admin)"
