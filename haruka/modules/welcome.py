@@ -448,8 +448,8 @@ def security_text_reset(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     message = update.effective_message  # type: Optional[Message]
     getcur, cur_value, cust_text = sql.welcome_security(chat.id)
-    sql.set_welcome_security(chat.id, getcur, cur_value, "Ich bin kein Bot!")
-    update.effective_message.reply_text(" Der Text des Antibot-Knopfs wurde zureckgesetzt auf: `Ich bin kein Bot!`", parse_mode="markdown")
+    sql.set_welcome_security(chat.id, getcur, cur_value, "Ich bin kein Bot!😎✌")
+    update.effective_message.reply_text(" Der Text des Antibot-Knopfs wurde zurückgesetzt auf: `Ich bin kein Bot!`", parse_mode="markdown")
 
 
 @run_async
