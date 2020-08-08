@@ -20,13 +20,13 @@ from haruka.modules.helper_funcs.misc import paginate_modules
 from haruka.modules.translations.strings import tld, tld_help 
 from haruka.modules.connection import connected
 
-PM_START = """Heyo {}, ich bin's, {}!
+PM_START = """Heyo {}, ich bin's die, {}!
 
 Du weißt sicher, wie schwierig es sein kann, Gruppen zu managen. Ich helfe dir mit meinen zahlreichen Features dabei!
 
 Schreibe /help oder drücke den Hilfe-Knopf unten, um mehr drüber herauszufinden, wie du mich am besten verwenden kannst.
 
-Ich bin ein Werk meines Meisters @ShityBrainOfficial
+Wieso ich so bin, wie ich bin? Frag meinen Papa @ShityBrainOfficial !
 """
 
 
@@ -130,7 +130,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("Ich bin da :D")
+        update.effective_message.reply_text("Aloha! Was geht? :D")
 
 def send_start(bot, update):
     #Try to remove old message
